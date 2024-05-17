@@ -1,0 +1,66 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.4.10'
+    ext.hilt_version = '2.28-alpha'
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+
+    }
+
+
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/groups/public/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/repositories/google'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
+            allowInsecureProtocol = true
+        }
+        google()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+            allowInsecureProtocol = true
+        }
+    }
+}
+
+ext {
+    kotlin_version = '1.4.10'
+
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
